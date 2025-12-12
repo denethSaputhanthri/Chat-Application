@@ -23,9 +23,15 @@ public class ChatWindow extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         txtMassageArea.setColumns(20);
+        txtMassageArea.setFont(new java.awt.Font("Tw Cen MT", 2, 18)); // NOI18N
         txtMassageArea.setRows(5);
         jScrollPane1.setViewportView(txtMassageArea);
 
@@ -85,6 +91,10 @@ public class ChatWindow extends javax.swing.JFrame {
     private void massageTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_massageTextFieldActionPerformed
         
     }//GEN-LAST:event_massageTextFieldActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+       chatController.removeChatWindow(this);
+    }//GEN-LAST:event_formWindowClosed
 
     public void setMassage(String massage){
         txtMassageArea.append(massage+"\n");
