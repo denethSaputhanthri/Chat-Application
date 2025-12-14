@@ -1,4 +1,4 @@
-💬 Chat Application
+#💬 Chat Application
 
 This is a simple chat application project created to demonstrate basic communication logic and application flow.
 ✨ Features
